@@ -57,9 +57,8 @@ export class TestScoreComponent implements OnInit {
       grade: null
     };
     this.tests.unshift(test);
-    localStorage.setItem('tests',JSON.stringify(this.tests));
-
-    };
+    this.saveToLocalStorage();
+    }
 
     deleteTest(index: number) {
       this.tests.splice(index, 1);
@@ -68,7 +67,6 @@ export class TestScoreComponent implements OnInit {
 
     saveToLocalStorage() {
       localStorage.setItem('tests', JSON.stringify(this.tests));
-      console.log("saving to storage... ", this.tests);
       this.toastService.showToast('success', 4000, 'Success: Items Saved!');
     }
 
